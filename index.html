@@ -21,7 +21,7 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu">
                 <ul>
-                    <li><a href="#seila">Seila</a></li>
+                    <li><a href="#entrar">Entrar</a></li>
                     <li><a href="#asdasd">Asdasd</a></li>
                     <li><a href="#oi">oi?</a></li>
                     <li><a href="#eita">eita</a></li>
@@ -51,7 +51,36 @@
             
         </div>
     </section>
+    <div class="login-modal" id="login-modal">
+    <div class="login-content">
+        <span class="close-login" id="close-login">×</span>
+
+        <h2 id="modal-title">Entrar na Glacê</h2>
     
+        <form id="auth-form">
+            <div class="input-group" id="name-group" style="display: none;">
+                <label for="name"Nome completo></label>
+                <input type="text" id="name" placeholder="Seu nome">
+            </div>
+            
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Sua senha" required>
+                </div>
+            
+            <button type="submit" class="btn-submit" id="btn-submit-text">Entrar</button>
+        </form>
+
+        <p class="switch-auth-text">
+            <span id="switch-text">Não tem uma conta?</span>
+            <a href="#" id="toggle-auth">Cadastre-se</a>
+        </p>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
