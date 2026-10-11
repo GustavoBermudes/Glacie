@@ -60,7 +60,7 @@ header {
 .section1 {
     width: 100%;
     height: 100vh;
-    background-image: url(src/img/Background_Info1.png);
+    background-image: url(../images/Background_Info1.png);
     display: flex;
     background-size: contain;
     background-position: center;
