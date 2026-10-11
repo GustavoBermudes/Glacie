@@ -1,4 +1,4 @@
-(function () {
+export function initParallax () {
     const section = document.getElementById('section2');
     if (!section) return;
     const stage = section.querySelector('.stage');
@@ -26,4 +26,4 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     update();
-})();
+}
