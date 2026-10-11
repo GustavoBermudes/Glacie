@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Glacê</title>
+</head>
+<body>
+    <audio src="Audio.mp3" id="audio"></audio>
+    <header>
+        <div class="Titulos">
+            <h1>Glaciê</h1>
+        </div>
+        <section class="links">
+            <a href="#home">search</a>
+            <a href="#aboutus">bag (0)</a>
+            <div class="lines" id="menu-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <ul>
+                    <li><a href="#entrar">Entrar</a></li>
+                    <li><a href="#asdasd">Asdasd</a></li>
+                    <li><a href="#oi">oi?</a></li>
+                    <li><a href="#eita">eita</a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+    <section class="section1">
+        <div class="texts">
+             <h1 class="Title">BEYOND <br>FORM</h1>
+                <div class="subtitle_container">
+                <h4 class="subtitle">clothing as a quieter language</h4>
+             <div class="line3"></div>
+             </div>
+        </div>
+    </section>
+    <section class="section2" id="section2">
+      <div class="stage">
+        <div class="woman_intersect">
+            <h1>WOMEN</h1>
+            <a>explore</a>
+            <img src="src/img/Intersect_women1.png" alt="">
+        </div>
+        <div class="men_intersect">
+            <h1>MEN</h1>
+            <a>explore</a>
+            <img src="src/img/Intersect_men1.png" alt="">
+
+        </div>
+      </div>
+    </section>
+     <section class="section1">
+        <div class="texts">
+             <h1 class="Title">BEYOND <br>FORM</h1>
+                <div class="subtitle_container">
+                <h4 class="subtitle">clothing as a quieter language</h4>
+             <div class="line3"></div>
+             </div>
+        </div>
+    </section>
+
+
+    <div class="login-modal" id="login-modal">
+    <div class="login-content">
+        <span class="close-login" id="close-login">×</span>
+
+        <h2 id="modal-title">Entrar na Glacê</h2>
+    
+        <form id="auth-form">
+            <div class="input-group" id="name-group" style="display: none;">
+                <label for="name">Nome completo</label>
+                <input type="text" id="name" placeholder="Seu nome">
+            </div>
+            
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Sua senha" required>
+                </div>
+            
+            <button type="submit" class="btn-submit" id="btn-submit-text">Entrar</button>
+        </form>
+
+        <p class="switch-auth-text">
+            <span id="switch-text">Não tem uma conta?</span>
+            <a href="#" id="toggle-auth">Cadastre-se</a>
+        </p>
+    </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="parallax.js"></script>
+</body>
+</html>
