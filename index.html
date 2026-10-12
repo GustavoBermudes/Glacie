@@ -21,10 +21,12 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu">
                 <ul>
-                    <li><a href="#entrar">Entrar</a></li>
+                    <li id="entrar" class="entrar"><a href="#entrar" id="entrar-btn">Entrar</a></li>
+                    <li id="perfil" class="perfil"><a href="#perfil" id="perfil-btn">Minha Conta</a></li>
                     <li><a href="#asdasd">Asdasd</a></li>
                     <li><a href="#oi">oi?</a></li>
                     <li><a href="#eita">eita</a></li>
+                    <li id="logout" class="logout"><a href="#sair" id="logout-btn">Sair</a></li>
                 </ul>
             </div>
         </section>
@@ -93,6 +95,13 @@
             <span id="switch-text">Não tem uma conta?</span>
             <a href="#" id="toggle-auth">Cadastre-se</a>
         </p>
+    </div>
+    </div>
+
+    <div class="custom-alert" id="custom-alert">
+    <div class="alert-content">
+    <p id="alert-message">Mensagem aqui</p>
+    <button id="alert-ok-btn">OK</button>
     </div>
     </div>
     <script type="module" src="../js/main.js"></script>

@@ -5,68 +5,128 @@ export function initLogin(){
     const switchText = document.getElementById('switch-text');
     const toggleAuthLink = document.getElementById('toggle-auth');
     const authForm = document.getElementById('auth-form');
+    const loginModal = document.getElementById('login-modal');
 
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
 
+    // modal de alerta
+    const customAlert = document.getElementById('custom-alert');
+    const alertMessage = document.getElementById('alert-message');
+    const alertOkBtn = document.getElementById('alert-ok-btn');
+
+    // muda 'entrar' para 'minha conta' e botão de logout
+    const loginLink = document.querySelector('a[href="#entrar"]');
+    const logout = document.getElementById('logout');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // função para exibir o modal de alerta
+    function showAlert(message) {
+        alertMessage.innerText = message;
+        customAlert.classList.add('active');
+    }
+
+    if (alertOkBtn) {
+        alertOkBtn.addEventListener('click', () => {
+            customAlert.classList.remove('active');
+        });
+    }
+
+    function toggleLoginLogout() {
+        const loggedUser = localStorage.getItem('glace_logged_in_user');
+        const entrarItem = document.querySelector('.entrar');
+        const perfilItem = document.querySelector('.perfil');
+        const logoutItem = document.querySelector('.logout');
+
+        if (loggedUser) {
+            if (loggedUser) {
+                if (entrarItem) entrarItem.classList.add('hidden');
+                if (perfilItem) perfilItem.classList.add('active');
+                if (logoutItem) logoutItem.classList.add('active');
+            }
+        } else {
+            if (entrarItem) entrarItem.classList.remove('hidden');
+            if (perfilItem) perfilItem.classList.remove('active');
+            if (logoutItem) logoutItem.classList.remove('active');
+        }
+    }
+
+    toggleLoginLogout();
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('glace_logged_in_user');
+            toggleLoginLogout();
+            showAlert('Você saiu da conta.');
+        })
+    }
+
     let isRegisterMode = false;
 
-    toggleAuthLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        isRegisterMode = !isRegisterMode;
+    if (toggleAuthLink) {
+        toggleAuthLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            isRegisterMode = !isRegisterMode;
 
-        if (isRegisterMode) {
-            modalTitle.innerText = 'Criar conta na Glacê';
-            nameGroup.style.display = 'flex';
-            btnSubmitText.innerText = 'Cadastrar';
-            switchText.innerText = 'Já tem uma conta?';
-            toggleAuthLink.innerText = 'Entrar';
-            nameInput.setAttribute('required', 'true');
-        } else {
-            modalTitle.innerText = 'Entrar na Glacê';
-            nameGroup.style.display = 'none';
-            btnSubmitText.innerText = 'Entrar';
-            switchText.innerText = 'Não tem uma conta?';
-            toggleAuthLink.innerText = 'Cadastre-se';
-            nameInput.removeAttribute('required');
-        }
-    });
-
-    authForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const email = emailInput.value;
-        const password = passwordInput.value;
-
-        if (isRegisterMode) {
-            const name = nameInput.value;
-            const userData = { name, email, password };
-
-            localStorage.setItem('glace_user', JSON.stringify(userData));
-            alert('Conta cadastrada com sucesso!');
-            
-            loginModal.classList.remove('active');
-            authForm.reset();
-        } else {
-            const savedUserJson = localStorage.getItem('glace_user');
-
-            if (!savedUserJson) {
-                alert('Nenhuma conta encontrada. Faça o cadastro primeiro!');
-                return;
+            if (isRegisterMode) {
+                modalTitle.textContent = 'Criar conta na Glacê';
+                nameGroup.style.display = 'flex';
+                btnSubmitText.textContent = 'Cadastrar';
+                switchText.textContent = 'Já tem uma conta?';
+                toggleAuthLink.textContent = 'Entrar';
+                nameInput.setAttribute('required', 'true');
+            } else {
+                modalTitle.textContent = 'Entrar na Glacê';
+                nameGroup.style.display = 'none';
+                btnSubmitText.textContent = 'Entrar';
+                switchText.textContent = 'Não tem uma conta?';
+                toggleAuthLink.textContent = 'Cadastre-se';
+                nameInput.removeAttribute('required');
             }
+        });
+    }
 
-            const savedUser = JSON.parse(savedUserJson);
+    if (authForm) {
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+            const password = passwordInput.value;
 
-            if (savedUser.email === email && savedUser.password === password) {
-                alert(`Bem-vindo de volta, ${savedUser.name}!`);
+            let userList = JSON.parse(localStorage.getItem('glace_user_list')) || [];
+
+            if (isRegisterMode) {
+                const name = nameInput.value;
+
+                const userExists = userList.some(user => user.email === email);
+                if (userExists){
+                    showAlert('Este e-mail já está cadastrado!');
+                    return;
+                }
+
+                const newUserData = { name, email, password };
+                userList.push(newUserData);
+                localStorage.setItem('glace_user_list', JSON.stringify(userList));
+                localStorage.setItem('glace_logged_in_user', JSON.stringify(newUserData));
+                showAlert('Conta cadastrada com sucesso!');
                 loginModal.classList.remove('active');
                 authForm.reset();
+                toggleLoginLogout();
             } else {
-                alert('E-mail ou senha incorretos.');
+                const foundUser = userList.find(user => user.email === email && user.password === password);
+                if (foundUser) {
+                    localStorage.setItem('glace_logged_in_user', JSON.stringify(foundUser));
+                    showAlert(`Bem-vindo de volta, ${foundUser.name}!`);
+                    loginModal.classList.remove('active');
+                    authForm.reset();
+                    toggleLoginLogout();
+                } else {
+                    showAlert('E-mail ou senha incorretos (ou conta não encontrada).');
+                }
             }
-        }
-    });
+        });
+    }
 
 }
 
