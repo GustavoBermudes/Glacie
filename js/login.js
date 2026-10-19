@@ -1,4 +1,8 @@
+import { showAlert } from './utils.js';
+
 export function initLogin(){
+    
+
     const modalTitle = document.getElementById('modal-title');
     const nameGroup = document.getElementById('name-group');
     const btnSubmitText = document.getElementById('btn-submit-text');
@@ -21,11 +25,6 @@ export function initLogin(){
     const logout = document.getElementById('logout');
     const logoutBtn = document.getElementById('logout-btn');
 
-    // função para exibir o modal de alerta
-    function showAlert(message) {
-        alertMessage.innerText = message;
-        customAlert.classList.add('active');
-    }
 
     if (alertOkBtn) {
         alertOkBtn.addEventListener('click', () => {

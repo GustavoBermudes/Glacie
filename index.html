@@ -104,6 +104,89 @@
     <button id="alert-ok-btn">OK</button>
     </div>
     </div>
+
+    <div class="profile-modal" id="profile-modal">
+        <div class="profile-content">
+        <span class="close-profile" id="close-profile">×</span>
+            <h2>Meu Perfil</h2>
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="dados">Dados Pessoais</button>
+                <button class="tab-btn" data-tab="enderecos">Endereço</button>
+                <button class="tab-btn" data-tab="pedidos">Pedidos</button>
+            </div>
+            <div class="profile-body">
+                <div class="tab-pane active" id="dados">
+                    <form id="personal-data-form">
+                        <div class="input-group">
+                            <label for="profile-name">Nome completo</label>
+                            <input type="text" id="profile-name" placeholder="Seu nome">
+                        </div>
+                        <div class="input-group">
+                            <label for="profile-birth">Data de Nascimento</label>
+                            <input type="date" id="profile-birth" placeholder="dd/mm/aaaa">
+                        </div>
+                        <div class="input-group">
+                            <label for="profile-phone">Telefone</label>
+                            <input type="text" id="profile-phone" placeholder="(00) 00000-0000">
+                        </div>
+                        <button type="submit" class="btn-submit">Salvar Alterações</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="enderecos">
+                    <form id="address-form">
+                        <div class="input-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="logradouro">Logradouro </label>
+                            <input type="text" id="logradouro" class="input-disabled" readonly placeholder="Rua">
+                        </div>
+
+                        <div class="input-row" style="display: flex; gap: 15px;">
+                            <div class="input-group" style="flex: 1;">
+                                <label for="numero">Número</label>
+                                <input type="text" id="numero" placeholder="Ex: 123" required>
+                            </div>
+                            <div class="input-group" style="flex: 2;">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" id="complemento" placeholder="Apto, Bloco, etc. (Opcional)">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" class="input-disabled" readonly placeholder="Bairro">
+                        </div>
+
+                        <div class="input-row" style="display: flex; gap: 15px;">
+                            <div class="input-group" style="flex: 2;">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" class="input-disabled" readonly placeholder="Cidade">
+                            </div>
+                            <div class="input-group" style="flex: 1;">
+                                <label for="estado">Estado (UF)</label>
+                                <input type="text" id="estado" class="input-disabled" readonly placeholder="UF">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="referencia">Ponto de Referência</label>
+                            <input type="text" id="referencia" placeholder="Próximo a...">
+                        </div>
+
+                        <button type="submit" class="btn-submit">Salvar Endereço</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="pedidos">
+                    <div class="orders-list">
+                        <p>Você ainda não fez nenhum pedido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="module" src="../js/main.js"></script>
 </body>
 </html>
