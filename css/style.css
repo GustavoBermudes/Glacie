@@ -540,7 +540,7 @@ profile-content label,
     border-bottom: 2px solid #000;
 }
 
-/* Alternância dos conteúdos das abas */
+/* Alternância dos conteudos das abas */
 .tab-pane {
     display: none;
 }

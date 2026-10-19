@@ -179,7 +179,7 @@ export function initPerfil() {
                 // Salva na sessão ativa
                 localStorage.setItem('glace_logged_in_user', JSON.stringify(loggedUser));
                 
-                // Atualiza também na lista geral de usuários (`glace_user_list`)
+                // Atualiza lista geral de usuários 
                 let userList = JSON.parse(localStorage.getItem('glace_user_list')) || [];
                 userList = userList.map(user => {
                     if (user.email === loggedUser.email) {

@@ -7,7 +7,6 @@ export function showAlert(message) {
         alertMessage.textContent = message;
         customAlert.classList.add('active');
 
-        // Garante que o evento de fechar funcione caso ainda não esteja configurado globalmente
         if (alertOkBtn && !alertOkBtn.dataset.listenerAttached) {
             alertOkBtn.dataset.listenerAttached = 'true';
             alertOkBtn.addEventListener('click', () => {
