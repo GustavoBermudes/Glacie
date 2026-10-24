@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Glaciê</title>
+</head>
+<body>
+    <audio src="Audio.mp3" id="audio"></audio>
+    <header>
+        <div class="Titulos">
+            <h1>Glaciê</h1>
+        </div>
+        <section class="links">
+            <a href="#home">pesquisa</a>
+            <a href="#aboutus">carrinho (0)</a>
+            <div class="lines" id="menu-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <ul>
+                    <h4>Usuário</h4>
+                    <li id="entrar" class="entrar"><a href="#entrar" id="entrar-btn">ENTRAR</a></li>
+                    <li id="perfil" class="perfil"><a href="#perfil" id="perfil-btn">MINHA CONTA</a></li>
+                    <li><a href="#asdasd">PESQUISA</a></li>
+                    <li><a href="#oi">CARRINHO (0)</a></li>
+                    <h4>Catálogo</h4>
+                    <li><a href="#asdasd">MULHERES</a></li>
+                    <li><a href="#oi">HOMENS</a></li>
+                    <h4>Coleções</h4>
+                    <li><a href="#asdasd">V E L A</a></li>
+                    <li style="margin-top: 5vw;" id="logout" class="logout"><a href="#sair" id="logout-btn">Sair</a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+
+    <section class="section1">
+        <div class="texts">
+            <h1 class="Title">ALÉM DA <br>FORMA</h1>
+            <div class="subtitle_container">
+                <h4 class="subtitle">A roupa como uma linguagem mais sutil</h4>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section2" id="section2">
+        <div class="stage">
+            <div class="woman_intersect">
+                <h1>MULHERES</h1>
+                <a>descobrir</a>
+                <img draggable="false" src="images/Intersect_women1.png" alt="">
+            </div>
+            <div class="men_intersect">
+                <h1>HOMENS</h1>
+                <a>descobrir</a>
+                <img draggable="false" src="images/Intersect_men1.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="section3">
+
+        <!-- Área que define quanto tempo a seção dura durante a rolagem -->
+        <div class="section3-stage">
+
+            <!-- Imagens dos óculos que ficam sobre a modelo uma do lado da outra-->
+            <img class="glasses glasses1" src="images/Glasses1.png" alt="Óculos 1">
+            <img class="glasses glasses2" src="images/Glasses2.png" alt="Óculos 2">
+            <img class="glasses glasses3" src="images/Glasses3.png" alt="Óculos 3">
+
+            <!-- Texto fixo à direita, junto com o background -->
+            <div class="glasses-info">
+
+                <div class="glasses-text text1">
+                    <h2>VELA</h2>
+                    <p class="subtitle">SHADOW GLASSES</p>
+                    <span class="line4"></span>
+                    <p>
+                        ARMAÇÃO MINIMALISTA <br>
+                        LEVE E RESISTENTE <br>
+                        LENTES COM PROTEÇÃO UV400
+                    </p>
+                    <span class="line4"></span>
+                    <p>FORMA × FUNÇÃO</p>
+                </div>
+
+                <div class="glasses-text text2">
+                    <h2>VELA</h2>
+                    <p class="subtitle">SHADOW FLOW GLASSES</p>
+                    <span class="line4"></span>
+                    <p>
+                        DESIGN AERODINÂMICO <br>
+                        ARMAÇÃO EM METAL LEVE <br>
+                        LENTES POLARIZADAS
+                    </p>
+                    <span class="line4"></span>
+                    <p>FORMA × FUNÇÃO</p>
+                </div>
+
+                <div class="glasses-text text3">
+                    <h2>VELA</h2>
+                    <p class="subtitle">SHIELD GLASSES</p>
+                    <span class="line4"></span>
+                    <p>
+                        DESIGN DE LENTE ÚNICA <br>
+                        DETALHES ESCULPIDOS EM METAL <br>
+                        FORMATO ENVOLVENTE <br>
+                        AJUSTE ENVOLVENTE AO ROSTO
+                    </p>
+                    <span class="line4"></span>
+                    <p>FORMA × FUNÇÃO</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- O footer fica fixo e escondido embaixo,  o JS faz ele subir sobre a tela quanod está no ponto certo-->
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <h2>Glaciê</h2>
+            <p>&copy; 2026 Glacie. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="login-modal" id="login-modal">
+        <div class="login-content">
+            <span class="close-login" id="close-login">×</span>
+
+            <h2 id="modal-title">Entrar na Glaciê</h2>
+
+            <form id="auth-form">
+                <div class="input-group" id="name-group" style="display: none;">
+                    <label for="name">Nome completo</label>
+                    <input type="text" id="name" placeholder="Seu nome">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Sua senha" required>
+                </div>
+
+                <button type="submit" class="btn-submit" id="btn-submit-text">Entrar</button>
+            </form>
+
+            <p class="switch-auth-text">
+                <span id="switch-text">Não tem uma conta?</span>
+                <a href="#" id="toggle-auth">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="custom-alert" id="custom-alert">
+        <div class="alert-content">
+            <p id="alert-message">Mensagem aqui</p>
+            <button id="alert-ok-btn">OK</button>
+        </div>
+    </div>
+
+    <div class="profile-modal" id="profile-modal">
+        <div class="profile-content">
+            <span class="close-profile" id="close-profile">×</span>
+            <h2>Meu Perfil</h2>
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="dados">Dados Pessoais</button>
+                <button class="tab-btn" data-tab="enderecos">Endereço</button>
+                <button class="tab-btn" data-tab="pedidos">Pedidos</button>
+            </div>
+            <div class="profile-body">
+                <div class="tab-pane active" id="dados">
+                    <form id="personal-data-form">
+                        <div class="input-group">
+                            <label for="profile-name">Nome completo</label>
+                            <input type="text" id="profile-name" placeholder="Seu nome">
+                        </div>
+                        <div class="input-group">
+                            <label for="profile-birth">Data de Nascimento</label>
+                            <input type="date" id="profile-birth" placeholder="dd/mm/aaaa">
+                        </div>
+                        <div class="input-group">
+                            <label for="profile-phone">Telefone</label>
+                            <input type="text" id="profile-phone" placeholder="(00) 00000-0000">
+                        </div>
+                        <button type="submit" class="btn-submit">Salvar Alterações</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="enderecos">
+                    <form id="address-form">
+                        <div class="input-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="logradouro">Logradouro </label>
+                            <input type="text" id="logradouro" class="input-disabled" readonly placeholder="Rua">
+                        </div>
+
+                        <div class="input-row" style="display: flex; gap: 15px;">
+                            <div class="input-group" style="flex: 1;">
+                                <label for="numero">Número</label>
+                                <input type="text" id="numero" placeholder="Ex: 123" required>
+                            </div>
+                            <div class="input-group" style="flex: 2;">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" id="complemento" placeholder="Apto, Bloco, etc. (Opcional)">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" class="input-disabled" readonly placeholder="Bairro">
+                        </div>
+
+                        <div class="input-row" style="display: flex; gap: 15px;">
+                            <div class="input-group" style="flex: 2;">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" class="input-disabled" readonly placeholder="Cidade">
+                            </div>
+                            <div class="input-group" style="flex: 1;">
+                                <label for="estado">Estado (UF)</label>
+                                <input type="text" id="estado" class="input-disabled" readonly placeholder="UF">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="referencia">Ponto de Referência</label>
+                            <input type="text" id="referencia" placeholder="Próximo a...">
+                        </div>
+
+                        <button type="submit" class="btn-submit">Salvar Endereço</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="pedidos">
+                    <div class="orders-list">
+                        <p>Você ainda não fez nenhum pedido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>

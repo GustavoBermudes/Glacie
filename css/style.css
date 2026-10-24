@@ -1,0 +1,841 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1px;
+}
+
+html,
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #050706;
+    scrollbar-width: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2vh 4vw 0;
+}
+.Titulos h1{
+    -webkit-user-select: none;
+    user-select: none;
+    color: #EFE8E8;
+    font-size: clamp(24px, 2.604vw, 40px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.4px;
+    transition: color 0.6s ease 0.3s;
+}
+
+.links{
+    display: flex;
+    gap: 1.5021vw;
+    margin-top: 2vh;
+}
+
+.links a{
+    text-decoration: none;
+    color: #EFE8E8;
+    font-size: clamp(10px, 2.604vw, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    transition: color ease-in-out 0.3s;
+}
+
+.links a:hover{
+    color: #da2424;
+}
+
+.section1 {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/Background_Info1.png);
+    display: flex;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lines{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 1vh;
+    gap: 1.7vh; 
+    z-index: 1002;
+}
+
+.line1{
+    background-color: #dbd5d5;
+    width: 3.278vw;
+    height: 1px;
+    transition: ease-in-out 0.3s;
+}
+
+.line2{
+    background-color: #dbd5d5;
+    width: 2.200vw;
+    height: 1px;
+    transition: ease-in-out 0.3s;
+}
+
+.lines:hover{
+    cursor: pointer;
+    transition: ease-in-out 3s;
+    .line1{
+        background-color: #da2424;
+    }
+
+    .line2{
+        background-color: #da2424;
+    }
+
+}
+
+.dropdown-menu {
+    display: none;
+    position: fixed;      /* relativo à tela, não ao header */
+    top: 0;
+    right: 0;
+    height: 100vh;        /* tela inteira na vertical */
+    width: 17vw;
+    min-width: 260px;
+    background-color: #EFE8E8;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 14vh 30px 30px;  /* espaço no topo para o X */
+    overflow-y: auto;
+    z-index: 1001;        /* abaixo do X (1002) */
+}
+
+
+
+.dropdown-menu.active {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    margin-bottom: 2vw;
+}
+
+.dropdown-menu ul h4 {
+     -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 2vw;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.section1 .Title{
+    color: #EFE8E8;
+     font-size: clamp(30px, 6.604vw, 110px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 5.5px;
+}
+
+.section1 .subtitle{
+     -webkit-user-select: none;
+    user-select: none;
+    color: #EFE8E8;
+    font-size: clamp(1px, 1.604vw, 16px);
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+.section1 .texts{
+     -webkit-user-select: none;
+    user-select: none;
+    margin-left: 8vw;
+    margin-top: 35vh;
+}
+
+.subtitle_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.line3{
+    background-color: #EFE8E8;
+    width: 4.741vw;
+    height: 1px;
+    margin-right: auto;
+    margin-left: 0.6vw;
+    margin-top: 1.9vh;
+}
+
+
+.section2 {
+    position: relative;
+    width: 100%;
+    height: 250vh; /* distância de rolagem do parallax */
+    background-color: #050706;
+}
+
+.section2 .stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    perspective: 1400px;
+    --p: 0; /* progresso 0 -> 1, definido pelo JS */
+}
+
+.woman_intersect,
+.men_intersect{
+    position: absolute;
+    width: 27vw;
+    will-change: transform, opacity;
+    opacity: var(--p);
+}
+
+.woman_intersect{
+    right: 17vw;
+    top: 8vh;
+    transform:
+        translateY(calc((1 - var(--p)) * -110vh))
+        rotateY(-22deg) rotateZ(-3deg);
+}
+
+.men_intersect{
+    left: 17vw;
+    top: 30vh;
+    transform:
+        translateY(calc((1 - var(--p)) * 110vh))
+        rotateY(22deg) rotateZ(2deg);
+}
+
+.woman_intersect img,
+.men_intersect img{
+    display: block;
+    width: 100%;
+    height: auto;
+     -webkit-user-select: none;
+    user-select: none;
+}
+
+.woman_intersect h1,
+.men_intersect h1{
+     -webkit-user-select: none;
+    user-select: none;
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    margin: 0;
+    color: #EFE8E8;
+    font-size: clamp(16px, 1.6vw, 30px);
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    z-index: 1;
+}
+
+.woman_intersect a,
+.men_intersect a{
+    position: absolute;
+    top: calc(8% + clamp(24px, 2.6vw, 48px));
+    left: 8%;
+    z-index: 1;
+    color: #EFE8E8;
+    font-size: clamp(8px, 0.8vw, 14px);
+    letter-spacing: 0.8px;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+.woman_intersect h1,
+.woman_intersect a{
+    left: auto;
+    right: 8%;
+
+}
+
+.woman_intersect a:hover, .men_intersect a:hover{
+    cursor: pointer;
+    color: #da2424;
+}
+
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 2000; 
+    justify-content: center;
+    align-items: center;
+}
+
+.login-modal.active {
+    display: flex; 
+}
+
+.login-content {
+    background-color: #EFE8E8;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.close-login {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-login:hover {
+    color: #000;
+}
+
+.login-content h2 {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 20px;
+    font-family: inherit;
+    font-size: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.input-group input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: #EFE8E8;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #333;
+}
+
+.login-modal, 
+.login-modal * {
+    color: #111111;
+}
+
+.login-modal .btn-submit,
+.login-modal .btn-submit * {
+    color: #EFE8E8;
+}
+
+.switch-auth-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.switch-auth-text a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.switch-auth-text a:hover {
+    color: #da2424 !important;
+}
+
+/* modal de alerta do login*/
+
+.custom-alert {
+    -webkit-user-select: none;
+    user-select: none;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-alert.active {
+    display: flex;
+}
+
+/* Caixa de aviso */
+.alert-content {
+    background-color: #EFE8E8;
+    padding: 25px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.alert-content p {
+    font-size: 1rem;
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+/* Botão OK do alerta */
+.alert-content button {
+    background-color: #000000;
+    color: #EFE8E8;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.alert-content button:hover {
+    background-color: #da2424;
+}
+
+/* botão de entrar */
+.entrar {
+    display: block;
+}
+
+.entrar.hidden {
+    display: none;
+}
+
+/* esconder opção de logout */
+.perfil, 
+.logout {
+    display:none;
+}
+
+.perfil.active,
+.logout.active {
+    display:block;
+}
+
+/* Fundo escuro do Modal de Perfil */
+.profile-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9900 !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-modal.active {
+    display: flex !important;
+}
+
+/* Caixa principal da Dashboard */
+.profile-content {
+    background-color: #EFE8E8;
+    padding: 40px; 
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px; 
+    min-height: 750px; 
+    position: relative;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    color: #111111;
+    z-index: 10000;
+}
+
+.profile-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.profile-content input {
+    color: #111111;
+    background-color: #EFE8E8 !important;
+    border: 1px solid #cccccc !important;
+}
+
+.profile-content input::placeholder {
+    color: #888888;
+}
+
+.profile-content label,
+.profile-content h2 {
+    color: #111111 !important;
+}
+
+.profile-content input.input-disabled {
+    background-color: #EFE8E8 !important;
+    color: #666666;
+    cursor: not-allowed;
+    border-color: #e0e0e0 !important;
+}
+
+.profile-content input.input-disabled::placeholder {
+    color: #999999;
+}
+
+/* Botão de Fechar (X) */
+.close-profile {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-profile:hover {
+    color: #000;
+}
+
+/* Estilo das Abas*/
+.profile-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    color: #666;
+    font-family: inherit;
+    transition: color 0.3s;
+}
+
+.tab-btn.active {
+    color: #000;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+}
+
+/* Alternância dos conteudos das abas */
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Estilo para a lista de pedidos vazia */
+.orders-list p {
+    color: #666;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+
+/* Seção longa: permite percorrer os três modelos com a rolagem.
+   Foi para 400vh para sobrar espaço de rolagem para o footer subir. */
+.section3 {
+     -webkit-user-select: none;
+    user-select: none;
+    margin-top: 200px;
+    width: 100%;
+    height: 400vh;
+    position: relative;
+}
+
+/* Palco que fica parado enquanto percorremos a seção */
+.section3-stage {
+    width: 100%;
+    height: 100vh;
+
+    /* Mantém o palco preso ao topo da tela */
+    position: sticky;
+    top: 0;
+
+    /* Esconde as partes das imagens que ultrapassarem o palco */
+    overflow: hidden;
+
+    /* Background da modelo */
+    background-image: url("../images/Background_Info2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Parallax: quando o footer sobe, o palco recua e escurece */
+    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1),
+                filter 1s ease;
+    will-change: transform;
+}
+
+/* Footer aberto: o palco sobe um pouco (mais devagar que o footer) e escurece */
+body.footer-open .section3-stage {
+    transform: translateY(-12vh);
+    filter: brightness(0.45);
+}
+
+/* Todas as imagens ocupam a mesma área */
+.section3-stage .glasses {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* Mantém as proporções originais dos óculos */
+    object-fit: contain;
+    object-position: center;
+
+    /* Prepara a imagem para a animação */
+    will-change: transform, opacity;
+
+    /* Evita que as imagens atrapalhem cliques */
+    pointer-events: none;
+
+    /* Suaviza a entrada e a saída dos modelos */
+    transition: 0.6s ease-in-out;
+}
+
+/* Primeiro óculos: começa visível no centro */
+.glasses1 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Outros óculos: começam fora da tela, à direita */
+.glasses2,
+.glasses3 {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Área das informações, posicionada à direita */
+.glasses-info {
+    position: absolute;
+
+    /* Ajuste estes valores para aproximar o texto da borda */
+    right: 7%;
+    top: 21%;
+
+    width: 230px;
+
+    /* Fica acima das imagens dos óculos */
+    z-index: 5;
+
+    /* Não deixa o conteúdo interferir na rolagem */
+    pointer-events: none;
+}
+
+/* Estilo comum aos três blocos de texto */
+.glasses-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    color: #EFE8E8;
+    font-family: Arial, sans-serif;
+
+    /* Espaçamento entre as letras, estilo editorial */
+    letter-spacing: 4px;
+    font-size: 9px;
+    line-height: 2.2;
+
+    /* Suaviza a troca entre os textos */
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease,
+                transform 0.6s ease;
+}
+
+/* Título principal do modelo */
+.glasses-text h2 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 12px;
+    margin: 0 0 5px;
+}
+
+/* Subtítulo abaixo do nome */
+.glasses-text .subtitle {
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin: 0 0 45px;
+}
+
+/* Linhas decorativas minimalistas */
+.glasses-text .line4 {
+    display: block;
+    width: 45px;
+    height: 1px;
+    background: #EFE8E8;
+    margin: 0 0 25px;
+}
+
+/* Espaçamento entre os textos descritivos */
+.glasses-text p {
+    margin: 0 0 25px;
+}
+
+/* Primeiro texto visível por padrão */
+.text1 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Menu aberto: esconde pesquisa e carrinho do header */
+.links:has(.dropdown-menu.active) > a {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Menu aberto: as duas linhas viram um X escuro sobre o fundo branco */
+.links:has(.dropdown-menu.active) .line1,
+.links:has(.dropdown-menu.active) .line2 {
+    width: 3.278vw;               /* mesma largura, para cruzarem no centro */
+    background-color: #000;
+}
+
+/* a distância entre os centros é (gap 1.7vh + 1px), então cada linha anda metade */
+.links:has(.dropdown-menu.active) .line1 {
+    transform: translateY(calc(0.85vh + 0.5px)) rotate(45deg);
+}
+
+.links:has(.dropdown-menu.active) .line2 {
+    transform: translateY(calc(-0.85vh - 0.5px)) rotate(-45deg);
+}
+
+/* hover vermelho também no X */
+.links:has(.dropdown-menu.active) .lines:hover .line1,
+.links:has(.dropdown-menu.active) .lines:hover .line2 {
+    background-color: #da2424;
+}
+
+/* PArte do footer*/
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 900;
+
+    background-color: #EFE8E8;
+    color: #050706;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.6);
+
+    /* escondido abaixo da tela */
+    transform: translateY(100%);
+    pointer-events: none;
+
+    /* animação do slide subindo e descendo */
+    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+}
+
+/* O JS adiciona .show quando chega ao fim da section3 */
+.footer.show {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Texto do footer: entra um pouco depois e mais devagar*/
+.footer-inner {
+    opacity: 0;
+    transform: translateY(14vh);
+    transition: opacity 0.8s ease 0.35s,
+                transform 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+}
+
+.footer.show .footer-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-inner h2 {
+    color: #050706;
+    font-size: clamp(32px, 6vw, 96px);
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin-bottom: 2vh;
+}
+
+.footer-inner p {
+    color: #050706;
+    font-size: clamp(12px, 1.2vw, 16px);
+    letter-spacing: 1px;
+}
+
+/* Header escuro quando o footer  está aberto */
+header.on-light .Titulos h1,
+header.on-light .links > a {
+    color: #050706;
+}
+
+header.on-light .line1,
+header.on-light .line2 {
+    background-color: #050706;
+}
