@@ -4,6 +4,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Playfair Display", serif;
+<<<<<<< HEAD
+=======
+    color: #f1f1ef;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     letter-spacing: 1px;
 }
 
@@ -27,15 +31,21 @@ header {
     padding: 2vh 4vw 0;
 }
 .Titulos h1{
+<<<<<<< HEAD
     -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     color: #EFE8E8;
     font-size: clamp(24px, 2.604vw, 40px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 2.4px;
+<<<<<<< HEAD
     transition: color 0.6s ease 0.3s;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }
 
 .links{
@@ -75,19 +85,32 @@ header {
     align-items: flex-end;
     margin-top: 1vh;
     gap: 1.7vh; 
+<<<<<<< HEAD
     z-index: 1002;
 }
 
 .line1{
     background-color: #dbd5d5;
     width: 3.278vw;
+=======
+}
+
+.line1{
+    background-color: #EFE8E8;
+    width: 4.278vw;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     height: 1px;
     transition: ease-in-out 0.3s;
 }
 
 .line2{
+<<<<<<< HEAD
     background-color: #dbd5d5;
     width: 2.200vw;
+=======
+    background-color: #EFE8E8;
+    width: 3.200vw;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     height: 1px;
     transition: ease-in-out 0.3s;
 }
@@ -107,6 +130,7 @@ header {
 
 .dropdown-menu {
     display: none;
+<<<<<<< HEAD
     position: fixed;      /* relativo à tela, não ao header */
     top: 0;
     right: 0;
@@ -122,6 +146,18 @@ header {
 
 
 
+=======
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    min-width: 200px;
+}
+
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 .dropdown-menu.active {
     display: block;
 }
@@ -133,6 +169,7 @@ header {
 }
 
 .dropdown-menu ul li {
+<<<<<<< HEAD
     margin-bottom: 2vw;
 }
 
@@ -140,6 +177,9 @@ header {
      -webkit-user-select: none;
     user-select: none;
     margin-bottom: 2vw;
+=======
+    margin-bottom: 10px;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }
 
 .dropdown-menu ul li a {
@@ -157,8 +197,11 @@ header {
 }
 
 .section1 .subtitle{
+<<<<<<< HEAD
      -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     color: #EFE8E8;
     font-size: clamp(1px, 1.604vw, 16px);
     font-weight: 400;
@@ -167,8 +210,11 @@ header {
 }
 
 .section1 .texts{
+<<<<<<< HEAD
      -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     margin-left: 8vw;
     margin-top: 35vh;
 }
@@ -180,7 +226,11 @@ header {
 
 .line3{
     background-color: #EFE8E8;
+<<<<<<< HEAD
     width: 4.741vw;
+=======
+    width: 5.741vw;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     height: 1px;
     margin-right: auto;
     margin-left: 0.6vw;
@@ -234,14 +284,20 @@ header {
     display: block;
     width: 100%;
     height: auto;
+<<<<<<< HEAD
      -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }
 
 .woman_intersect h1,
 .men_intersect h1{
+<<<<<<< HEAD
      -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     position: absolute;
     top: 8%;
     left: 8%;
@@ -296,7 +352,11 @@ header {
 }
 
 .login-content {
+<<<<<<< HEAD
     background-color: #EFE8E8;
+=======
+    background-color: #ffffff;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     padding: 30px;
     border-radius: 8px;
     width: 100%;
@@ -319,8 +379,11 @@ header {
 }
 
 .login-content h2 {
+<<<<<<< HEAD
     -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     margin-bottom: 20px;
     font-family: inherit;
     font-size: 1.5rem;
@@ -333,14 +396,21 @@ header {
 }
 
 .input-group label {
+<<<<<<< HEAD
     -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     margin-bottom: 5px;
     font-size: 0.9rem;
     color: #333;
 }
 
+<<<<<<< HEAD
 .input-group input{
+=======
+.input-group input {
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -351,7 +421,11 @@ header {
     width: 100%;
     padding: 12px;
     background-color: #000;
+<<<<<<< HEAD
     color: #EFE8E8;
+=======
+    color: #fff;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -365,23 +439,39 @@ header {
 
 .login-modal, 
 .login-modal * {
+<<<<<<< HEAD
     color: #111111;
+=======
+    color: #111111 !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }
 
 .login-modal .btn-submit,
 .login-modal .btn-submit * {
+<<<<<<< HEAD
     color: #EFE8E8;
+=======
+    color: #ffffff !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }
 
 .switch-auth-text {
     margin-top: 15px;
     text-align: center;
     font-size: 0.9rem;
+<<<<<<< HEAD
     color: #555;
 }
 
 .switch-auth-text a {
     color: #000;
+=======
+    color: #555 !important;
+}
+
+.switch-auth-text a {
+    color: #000 !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     text-decoration: underline;
     font-weight: 600;
     margin-left: 5px;
@@ -394,8 +484,11 @@ header {
 /* modal de alerta do login*/
 
 .custom-alert {
+<<<<<<< HEAD
     -webkit-user-select: none;
     user-select: none;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     display: none;
     position: fixed;
     top: 0;
@@ -414,7 +507,11 @@ header {
 
 /* Caixa de aviso */
 .alert-content {
+<<<<<<< HEAD
     background-color: #EFE8E8;
+=======
+    background-color: #ffffff;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     padding: 25px 30px;
     border-radius: 8px;
     width: 100%;
@@ -425,14 +522,22 @@ header {
 
 .alert-content p {
     font-size: 1rem;
+<<<<<<< HEAD
     color: #111111;
+=======
+    color: #111111 !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     margin-bottom: 20px;
 }
 
 /* Botão OK do alerta */
 .alert-content button {
     background-color: #000000;
+<<<<<<< HEAD
     color: #EFE8E8;
+=======
+    color: #ffffff !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     border: none;
     padding: 10px 25px;
     border-radius: 4px;
@@ -485,7 +590,11 @@ header {
 
 /* Caixa principal da Dashboard */
 .profile-content {
+<<<<<<< HEAD
     background-color: #EFE8E8;
+=======
+    background-color: #ffffff;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     padding: 40px; 
     border-radius: 10px;
     width: 90%;
@@ -493,7 +602,11 @@ header {
     min-height: 750px; 
     position: relative;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+<<<<<<< HEAD
     color: #111111;
+=======
+    color: #111111 !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     z-index: 10000;
 }
 
@@ -503,29 +616,50 @@ header {
 }
 
 .profile-content input {
+<<<<<<< HEAD
     color: #111111;
     background-color: #EFE8E8 !important;
+=======
+    color: #111111 !important;
+    background-color: #ffffff !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     border: 1px solid #cccccc !important;
 }
 
 .profile-content input::placeholder {
+<<<<<<< HEAD
     color: #888888;
 }
 
 .profile-content label,
+=======
+    color: #888888 !important;
+}
+
+profile-content label,
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 .profile-content h2 {
     color: #111111 !important;
 }
 
 .profile-content input.input-disabled {
+<<<<<<< HEAD
     background-color: #EFE8E8 !important;
     color: #666666;
+=======
+    background-color: #f0f0f0 !important;
+    color: #666666 !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     cursor: not-allowed;
     border-color: #e0e0e0 !important;
 }
 
 .profile-content input.input-disabled::placeholder {
+<<<<<<< HEAD
     color: #999999;
+=======
+    color: #999999 !important;
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }
 
 /* Botão de Fechar (X) */
@@ -583,6 +717,7 @@ header {
     font-size: 0.95rem;
     text-align: center;
     padding: 20px 0;
+<<<<<<< HEAD
 }
 
 
@@ -838,4 +973,6 @@ header.on-light .links > a {
 header.on-light .line1,
 header.on-light .line2 {
     background-color: #050706;
+=======
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
 }

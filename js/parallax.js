@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 /* Parallax da section2 */
 export function initParallax() {
+=======
+export function initParallax () {
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
     const section = document.getElementById('section2');
     if (!section) return;
     const stage = section.querySelector('.stage');
@@ -27,6 +31,7 @@ export function initParallax() {
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     update();
+<<<<<<< HEAD
 }
 
 /* Progresso da rolagem da section3 */
@@ -172,3 +177,6 @@ export function initFooter() {
 /* Inicialização automática */
 initGlasses();
 initFooter();
+=======
+}
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9

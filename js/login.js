@@ -70,14 +70,22 @@ export function initLogin(){
             isRegisterMode = !isRegisterMode;
 
             if (isRegisterMode) {
+<<<<<<< HEAD
                 modalTitle.textContent = 'Criar conta na Glaciê';
+=======
+                modalTitle.textContent = 'Criar conta na Glacê';
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
                 nameGroup.style.display = 'flex';
                 btnSubmitText.textContent = 'Cadastrar';
                 switchText.textContent = 'Já tem uma conta?';
                 toggleAuthLink.textContent = 'Entrar';
                 nameInput.setAttribute('required', 'true');
             } else {
+<<<<<<< HEAD
                 modalTitle.textContent = 'Entrar na Glaciê';
+=======
+                modalTitle.textContent = 'Entrar na Glacê';
+>>>>>>> babbb4fc884ea5c83d1118b80ada178816afb6b9
                 nameGroup.style.display = 'none';
                 btnSubmitText.textContent = 'Entrar';
                 switchText.textContent = 'Não tem uma conta?';
