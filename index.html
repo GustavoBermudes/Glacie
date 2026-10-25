@@ -13,7 +13,7 @@
         </div>
         <section class="links">
             <a href="#pesquisa">pesquisa</a>
-            <a href="#aboutus">carrinho (0)</a>
+            <a href="#carrinho">carrinho (0)</a>
             <div class="lines" id="menu-btn">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -111,6 +111,70 @@
             <div class="search-results-grid" id="search-results-grid">
                 <p class="search-placeholder-text">Comece a digitar para encontrar peças...</p>
             </div>
+        </div>
+    </div>
+
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <button class="close-checkout" id="close-checkout">&times;</button>
+            <h2>Finalizar Compra</h2>
+            
+            <form id="checkout-form">
+                <div class="checkout-summary">
+                    <div class="summary-line"><span>Subtotal:</span> <span id="checkout-subtotal">R$ 0,00</span></div>
+                    <div class="summary-line"><span>Frete:</span> <span>R$ 8,90</span></div>
+                    <div class="summary-line total"><span>Total a pagar:</span> <span id="checkout-total">R$ 0,00</span></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="payer-name">Nome Completo</label>
+                    <input type="text" id="payer-name" placeholder="Seu nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="payer-cpf">CPF</label>
+                    <input type="text" id="payer-cpf" placeholder="000.000.000-00" maxlength="14" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Forma de Pagamento</label>
+                    <div class="payment-methods" style="display: flex; gap: 15px; margin-bottom: 10px;">
+                        <label><input type="radio" name="payment-method" value="credit" checked> Cartão de Crédito</label>
+                        <label><input type="radio" name="payment-method" value="pix"> Pix</label>
+                    </div>
+                </div>
+
+                <div id="credit-card-fields">
+                    <div class="input-group">
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19">
+                    </div>
+                    <div class="input-row" style="display: flex; gap: 15px;">
+                        <div class="input-group" style="flex: 1;">
+                            <label for="card-expiry">Validade (MM/AA)</label>
+                            <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="card-installments">Parcelamento</label>
+                        <select id="card-installments">
+                            <option value="1">1x sem juros</option>
+                            <option value="2">2x sem juros</option>
+                            <option value="3">3x sem juros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="pix-fields" style="display: none; text-align: center; margin: 15px 0; color: #444;">
+                    <p><strong>Chave Pix:</strong> glacie-pagamentos@pix.com</p>
+                    <p style="font-size: 0.85rem; color: #666;">O pedido será confirmado após a simulação do pagamento.</p>
+                </div>
+
+                <button type="submit" class="btn-submit" id="confirm-purchase-btn">Confirmar Pagamento</button>
+            </form>
         </div>
     </div>
 

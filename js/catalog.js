@@ -1,4 +1,4 @@
-// catalog.js
+
 import { showAlert, updateCartCount } from './utils.js';
 
 export function initCatalog() {
@@ -8,7 +8,6 @@ export function initCatalog() {
     const menSection = document.getElementById('men-section');
     const womenSection = document.getElementById('women-section');
 
-    // Seleciona os botões "descobrir" da section2 e também do menu
     const descobrirMulheresBtns = document.querySelectorAll('a[href="#catalogo-mulheres"], #catalogo-mulheres-menu-btn');
     const descobrirHomensBtns = document.querySelectorAll('a[href="#catalogo-homens"], #catalogo-homens-menu-btn');
 
@@ -66,7 +65,6 @@ export function initCatalog() {
                         });
                     });
 
-                    // Lógica do botão "Adicionar à Sacola"
                     const buyBtn = productCard.querySelector('.btn-buy');
                     buyBtn.addEventListener('click', () => {
                         if (!selectedSize) {
@@ -159,7 +157,6 @@ export function initCatalog() {
         });
     }
 
-    // Associa o clique em todos os botões/links de Mulheres (seção 2 e menu)
     descobrirMulheresBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -167,7 +164,6 @@ export function initCatalog() {
         });
     });
 
-    // Associa o clique em todos os botões/links de Homens (seção 2 e menu)
     descobrirHomensBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();

@@ -5,6 +5,7 @@ import { initPerfil } from './perfil.js';
 import { initCatalog } from './catalog.js';
 import { initCart } from './cart.js';
 import { initSearch } from './search.js';
+import { initCheckout } from './checkout.js';
 
 initParallax();
 initMenu();
@@ -13,3 +14,4 @@ initPerfil();
 initCatalog();
 initCart();
 initSearch();
+initCheckout();

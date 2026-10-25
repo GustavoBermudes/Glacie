@@ -1130,7 +1130,7 @@ header.on-light .line2 {
     background: #ffffff;
     width: 90%;
     max-width: 800px;
-    height: 85vh; /* Altura máxima da janela */
+    height: 85vh; 
     border-radius: 8px;
     padding: 30px;
     display: flex;
@@ -1168,14 +1168,13 @@ header.on-light .line2 {
     border-color: #111;
 }
 
-/* ÁREA DE RESULTADOS COM ROLAGEM */
 .search-results-grid {
-    flex: 1; /* Ocupa o espaço restante do modal */
-    overflow-y: auto !important; /* Habilita a barra de rolagem vertical */
+    flex: 1; 
+    overflow-y: auto !important;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    padding: 10px 5px; /* Padding interno para a barra não colar nos cards */
+    padding: 10px 5px; 
 }
 
 .search-placeholder-text {
@@ -1185,7 +1184,6 @@ header.on-light .line2 {
     margin-top: 40px;
 }
 
-/* Correção completa para os cards dentro do Modal de Pesquisa */
 .search-results-grid .product-card {
     background: #ffffff !important;
     border: 1px solid #eaeaea !important;
@@ -1196,7 +1194,7 @@ header.on-light .line2 {
     justify-content: space-between !important;
     height: auto !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-    overflow: visible !important; /* Garante que nada seja cortado */
+    overflow: visible !important;
 }
 
 .search-results-grid .product-image-container {
@@ -1270,4 +1268,68 @@ header.on-light .line2 {
 
 .search-results-grid .btn-buy:hover {
     background: #333 !important;
+}
+
+/* janela de finalizar compra */
+.checkout-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 999999 !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-modal.active {
+    display: flex !important;
+}
+
+.checkout-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #111111 !important;
+    overflow-y: auto;
+}
+
+.close-checkout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.checkout-summary {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.summary-line.total {
+    font-weight: bold;
+    font-size: 1.05rem;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
 }

@@ -1,8 +1,6 @@
-// search.js
 import { showAlert, updateCartCount } from './utils.js';
 
 export function initSearch() {
-    // Seleciona tanto o link simples quanto o do menu
     const pesquisaTriggers = document.querySelectorAll('a[href="#pesquisa"], #pesquisa-btn-menu');
     const searchModal = document.getElementById('search-modal');
     const closeSearchBtn = document.getElementById('close-search');
@@ -11,7 +9,6 @@ export function initSearch() {
 
     let allProducts = [];
 
-    // Carrega os dados do catálogo antecipadamente
     fetch('../json/catalog.json')
         .then(response => response.json())
         .then(data => {
@@ -19,12 +16,10 @@ export function initSearch() {
         })
         .catch(error => console.error('Erro ao carregar produtos para a busca:', error));
 
-    // Abre o modal de pesquisa isoladamente
     pesquisaTriggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // Fecha o menu lateral se estiver aberto
             const menuLateral = document.querySelector('.menu-lateral') || document.querySelector('.dropdown-menu');
             if (menuLateral) menuLateral.classList.remove('active');
 
@@ -41,14 +36,12 @@ export function initSearch() {
         });
     });
 
-    // Fecha o modal de pesquisa
     if (closeSearchBtn) {
         closeSearchBtn.addEventListener('click', () => {
             if (searchModal) searchModal.classList.remove('active');
         });
     }
 
-    // Filtra em tempo real conforme o usuário digita
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
@@ -67,7 +60,6 @@ export function initSearch() {
         });
     }
 
-    // Renderiza os resultados no modal de pesquisa
     function renderSearchResults(products) {
         if (!resultsGrid) return;
         resultsGrid.innerHTML = '';
@@ -86,7 +78,6 @@ export function initSearch() {
                 currency: 'BRL'
             });
 
-            // Cria os botões de tamanho interativos
             const sizesHTML = product.sizes.map(size => 
                 `<button type="button" class="size-btn" data-size="${size}">${size}</button>`
             ).join('');
@@ -105,7 +96,6 @@ export function initSearch() {
                 </div>
             `;
 
-            // Lógica de seleção de tamanho do card de pesquisa
             const sizeButtons = productCard.querySelectorAll('.size-btn');
             let selectedSize = null;
 
@@ -117,7 +107,6 @@ export function initSearch() {
                 });
             });
 
-            // Lógica do botão de compra na pesquisa
             const buyBtn = productCard.querySelector('.btn-buy');
             buyBtn.addEventListener('click', () => {
                 if (!selectedSize) {
@@ -148,7 +137,6 @@ export function initSearch() {
                 updateCartCount();
                 showAlert(`"${product.name}" (Tam: ${cartItem.size}) foi adicionado à sacola!`);
 
-                // Fecha o modal de pesquisa após adicionar com sucesso
                 if (searchModal) searchModal.classList.remove('active');
             });
 

@@ -23,13 +23,11 @@ export function initPerfil() {
     const addressForm = document.getElementById('address-form');
     const personalForm = document.getElementById('personal-data-form');
 
-    // Abrir o modal de perfil ao clicar em "Minha Conta"
     if (perfilBtn) {
         perfilBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (dropdownMenu) dropdownMenu.classList.remove('active');
             
-            // Carrega os dados salvos do usuário atual nos inputs
             loadUserData();
             loadAddressData();
 
@@ -37,21 +35,18 @@ export function initPerfil() {
         });
     }
 
-    // Fechar o modal pelo "X"
     if (closeProfileBtn) {
         closeProfileBtn.addEventListener('click', () => {
             profileModal.classList.remove('active');
         });
     }
 
-    // Fechar clicando fora da caixa
     window.addEventListener('click', (e) => {
         if (e.target === profileModal) {
             profileModal.classList.remove('active');
         }
     });
 
-    // Sistema de Abas
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             tabButtons.forEach(b => b.classList.remove('active'));
@@ -64,7 +59,6 @@ export function initPerfil() {
         });
     });
 
-    //  Função para preencher os inputs com os dados do localStorage
     function loadUserData() {
         const loggedUser = JSON.parse(localStorage.getItem('glace_logged_in_user'));
         if (loggedUser) {
@@ -74,7 +68,6 @@ export function initPerfil() {
     }
     }
 
-    //  Salvar dados pessoais atualizados
     if (personalForm) {
         personalForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -115,7 +108,6 @@ export function initPerfil() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.erro) {
-                        //alert('CEP não encontrado.');
                         showAlert('CEP não encontrado.');
                         logradouroInput.value = '';
                         bairroInput.value = '';
@@ -124,13 +116,11 @@ export function initPerfil() {
                         return;
                     }
 
-                    // Preenche os campos automáticos
                     logradouroInput.value = data.logradouro || '';
                     bairroInput.value = data.bairro || '';
                     cidadeInput.value = data.localidade || '';
                     estadoInput.value = data.uf || '';
                     
-                    // Foca automaticamente no campo de número para o usuário continuar
                     numeroInput.focus();
                 })
                 .catch(error => {
@@ -191,6 +181,63 @@ export function initPerfil() {
 
                 showAlert('Endereço salvo com sucesso!');
             }
+        });
+    }
+
+    function loadUserOrders() {
+        const ordersListContainer = document.querySelector('.orders-list');
+        if (!ordersListContainer) return;
+
+        const loggedUser = JSON.parse(localStorage.getItem('glace_logged_in_user'));
+        const allOrders = JSON.parse(localStorage.getItem('glacie_orders')) || [];
+
+        const userOrders = loggedUser 
+            ? allOrders.filter(order => order.userEmail === loggedUser.email)
+            : allOrders;
+
+        ordersListContainer.innerHTML = '';
+
+        if (userOrders.length === 0) {
+            ordersListContainer.innerHTML = '<p>Você ainda não fez nenhum pedido.</p>';
+            return;
+        }
+
+        userOrders.forEach(order => {
+            const formattedTotal = order.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            
+            const orderEl = document.createElement('div');
+            orderEl.style.cssText = 'border: 1px solid #ddd; padding: 15px; border-radius: 6px; margin-bottom: 12px; background: #fafafa; color: #111;';
+            
+            let itemsHTML = order.items.map(i => `<p style="font-size: 0.85rem; color: #555; margin: 2px 0;">- ${i.name} (Tam: ${i.size}) | Qtd: ${i.quantity}</p>`).join('');
+
+            orderEl.innerHTML = `
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <strong>Pedido: ${order.id}</strong>
+                    <span style="color: #2e7d32; font-weight: bold;">${order.status}</span>
+                </div>
+                <p style="font-size: 0.85rem; color: #777;">Data: ${order.date} | Pagamento: ${order.paymentMethod} | Frete: R$ 8,90</p>
+                <div style="margin: 8px 0; border-top: 1px solid #ddd; padding-top: 6px;">
+                    ${itemsHTML}
+                </div>
+                <p style="text-align: right; font-weight: bold; font-size: 0.95rem;">Total: ${formattedTotal}</p>
+            `;
+            ordersListContainer.appendChild(orderEl);
+        });
+    }
+
+    // Associa o carregamento à aba de pedidos do perfil
+    const pedidosTabBtn = document.querySelector('.tab-btn[data-tab="pedidos"]');
+    if (pedidosTabBtn) {
+        pedidosTabBtn.addEventListener('click', loadUserOrders);
+    }
+
+    // Carrega os pedidos automaticamente ao abrir o modal de perfil
+    if (perfilBtn) {
+        perfilBtn.addEventListener('click', () => {
+            loadUserData();
+            loadAddressData();
+            loadUserOrders(); // Carrega os pedidos direto ao abrir a conta
+            if (profileModal) profileModal.classList.add('active');
         });
     }
 }

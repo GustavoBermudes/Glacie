@@ -1,39 +1,33 @@
-// cart.js
 import { updateCartCount } from './utils.js';
 
 export function initCart() {
-    const carrinhoBtn = document.getElementById('carrinho-btn-menu');
+    const carrinhoTriggers = document.querySelectorAll('#carrinho-btn-menu, a[href="#carrinho"]');
     const cartModal = document.getElementById('cart-modal');
     const closeCartBtn = document.getElementById('close-cart');
     const container = document.getElementById('cart-items-container');
     const totalPriceEl = document.getElementById('cart-total-price');
     const btnCheckout = document.getElementById('btn-checkout');
 
-    // Inicializa o número do carrinho ao carregar a página
     updateCartCount();
 
-    // Abrir modal do carrinho
-    if (carrinhoBtn) {
-        carrinhoBtn.addEventListener('click', (e) => {
+    carrinhoTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Fecha o menu lateral se estiver aberto
-            const menuLateral = document.querySelector('.menu-lateral') || document.querySelector('.nav-menu');
+            const menuLateral = document.querySelector('.menu-lateral') || document.querySelector('.dropdown-menu');
             if (menuLateral) menuLateral.classList.remove('active');
 
             renderCartItems();
             if (cartModal) cartModal.classList.add('active');
         });
-    }
+    });
 
-    // Fechar modal do carrinho
     if (closeCartBtn) {
         closeCartBtn.addEventListener('click', () => {
             if (cartModal) cartModal.classList.remove('active');
         });
     }
 
-    // Função para renderizar os itens dentro do modal
     function renderCartItems() {
         if (!container) return;
 
@@ -77,7 +71,6 @@ export function initCart() {
         }
     }
 
-    // Ações de aumentar, diminuir e remover itens do carrinho
     if (container) {
         container.addEventListener('click', (e) => {
             let cart = JSON.parse(localStorage.getItem('glacie_cart')) || [];
@@ -102,7 +95,6 @@ export function initCart() {
         });
     }
 
-    // Botão de finalizar compra
     if (btnCheckout) {
         btnCheckout.addEventListener('click', () => {
             let cart = JSON.parse(localStorage.getItem('glacie_cart')) || [];
@@ -110,11 +102,23 @@ export function initCart() {
                 alert('Sua sacola está vazia!');
                 return;
             }
-            alert('Compra finalizada com sucesso! Obrigado por comprar na Glacie.');
-            localStorage.removeItem('glacie_cart');
-            updateCartCount();
-            renderCartItems();
+
             if (cartModal) cartModal.classList.remove('active');
+
+            const checkoutModal = document.getElementById('checkout-modal');
+            if (checkoutModal) {
+                checkoutModal.classList.add('active');
+                
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const shipping = 8.90;
+                const total = subtotal + shipping;
+
+                const subtotalEl = document.getElementById('checkout-subtotal');
+                const totalEl = document.getElementById('checkout-total');
+                
+                if (subtotalEl) subtotalEl.textContent = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                if (totalEl) totalEl.textContent = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            }
         });
     }
 }
