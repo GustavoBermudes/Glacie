@@ -97,8 +97,18 @@ export function initPerfil() {
     }
 
     if (cepInput) {
+       cepInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 8) value = value.slice(0, 8);
+            
+            if (value.length > 5) {
+                value = value.replace(/^(\d{5})(\d{1,})/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+
         cepInput.addEventListener('blur', () => {
-            const cep = cepInput.value.replace(/\D/g, '');
+            const cep = cepInput.value.replace(/\D/g, ''); 
 
             if (cep.length !== 8) {
                 return;
