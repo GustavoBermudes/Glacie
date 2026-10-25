@@ -15,3 +15,14 @@ export function showAlert(message) {
         }
     }
 }
+
+export function updateCartCount() {
+    const carrinhoBtnMenu = document.getElementById('carrinho-btn-menu');
+    if (!carrinhoBtnMenu) return;
+
+    const cart = JSON.parse(localStorage.getItem('glacie_cart')) || [];
+    
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    
+    carrinhoBtnMenu.textContent = `CARRINHO (${totalItems})`;
+}

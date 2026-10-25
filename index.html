@@ -12,7 +12,7 @@
             <h1>Glaciê</h1>
         </div>
         <section class="links">
-            <a href="#home">pesquisa</a>
+            <a href="#pesquisa">pesquisa</a>
             <a href="#aboutus">carrinho (0)</a>
             <div class="lines" id="menu-btn">
                 <div class="line1"></div>
@@ -23,11 +23,11 @@
                     <h4>Usuário</h4>
                     <li id="entrar" class="entrar"><a href="#entrar" id="entrar-btn">ENTRAR</a></li>
                     <li id="perfil" class="perfil"><a href="#perfil" id="perfil-btn">MINHA CONTA</a></li>
-                    <li><a href="#asdasd">PESQUISA</a></li>
-                    <li><a href="#oi">CARRINHO (0)</a></li>
+                    <li id="pesquisa-menu"><a href="#pesquisa" id="pesquisa-btn-menu">PESQUISA</a></li>
+                    <li id="carrinho-menu"><a href="#carrinho" id="carrinho-btn-menu">CARRINHO (0)</a></li>
                     <h4>Catálogo</h4>
-                    <li><a href="#asdasd">MULHERES</a></li>
-                    <li><a href="#oi">HOMENS</a></li>
+                    <li id="catalogo-mulheres-menu"><a href="#catalogo-mulheres" id="catalogo-mulheres-menu-btn">MULHERES</a></li>
+                    <li id="catalogo-homens-menu"><a href="#catalogo-homens" id="catalogo-homens-menu-btn">HOMENS</a></li>
                     <h4>Coleções</h4>
                     <li><a href="#asdasd">V E L A</a></li>
                     <li style="margin-top: 5vw;" id="logout" class="logout"><a href="#sair" id="logout-btn">Sair</a></li>
@@ -50,16 +50,69 @@
         <div class="stage">
             <div class="woman_intersect">
                 <h1>MULHERES</h1>
-                <a>descobrir</a>
+                <a href="#catalogo-mulheres">descobrir</a>
                 <img draggable="false" src="images/Intersect_women1.png" alt="">
             </div>
             <div class="men_intersect">
                 <h1>HOMENS</h1>
-                <a>descobrir</a>
+                <a href="#catalogo-homens">descobrir</a>
                 <img draggable="false" src="images/Intersect_men1.png" alt="">
             </div>
         </div>
     </section>
+
+    <section id="men-section" class="catalog-section">
+        <div class="catalog-container-inner">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Homens</h2>
+                <button class="btn-close-catalog" id="close-men-catalog">✕ Fechar</button>
+            </div>
+            <div class="product-grid" id="men-grid"></div>
+        </div>
+    </section>
+
+    <section id="women-section" class="catalog-section">
+        <div class="catalog-container-inner">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Mulheres</h2>
+                <button class="btn-close-catalog" id="close-women-catalog">✕ Fechar</button>
+            </div>
+            <div class="product-grid" id="women-grid"></div>
+        </div>
+    </section>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <button class="close-cart" id="close-cart">&times;</button>
+            <h2>Sua Sacola</h2>
+            
+            <div class="cart-items-container" id="cart-items-container">
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">R$ 0,00</span>
+                </div>
+                <button class="btn-checkout" id="btn-checkout">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-modal" id="search-modal">
+        <div class="search-content">
+            <button class="close-search" id="close-search">&times;</button>
+            <h2>Buscar no Catálogo</h2>
+            
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Digite o nome da peça (ex: jaqueta, jeans, regata)..." autocomplete="off">
+            </div>
+
+            <div class="search-results-grid" id="search-results-grid">
+                <p class="search-placeholder-text">Comece a digitar para encontrar peças...</p>
+            </div>
+        </div>
+    </div>
 
     <section class="section3">
 
