@@ -14,8 +14,7 @@ export function initSearch() {
         .then(data => {
             allProducts = data.glacie_catalog || [];
         })
-        //.catch(error => console.error('Erro ao carregar produtos para a busca:', error));
-        .catch(error => showAlert('Erro ao carregar produtos para a busca:', error));
+        .catch(error => console.error('Erro ao carregar produtos para a busca:', error));
 
     pesquisaTriggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
