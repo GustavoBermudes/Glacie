@@ -21,10 +21,6 @@ export function initCatalog() {
 
         const jsonUrl = isGitHubPages ? `${repoName}/json/catalog.json` : 'json/catalog.json';
 
-        //fetch(jsonUrl)
-        //.then(response => response.json())
-        //.then(data => console.log(data));
-
         //fetch('json/catalog.json')
         fetch(jsonUrl)
             .then(response => {
