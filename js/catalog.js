@@ -16,7 +16,17 @@ export function initCatalog() {
     function loadCatalogData() {
         if (catalogLoaded) return;
 
-        fetch('json/catalog.json')
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const repoName = '/Glacie';
+
+        const jsonUrl = isGitHubPages ? `${repoName}/json/catalog.json` : 'json/catalog.json';
+
+        //fetch(jsonUrl)
+        //.then(response => response.json())
+        //.then(data => console.log(data));
+
+        //fetch('json/catalog.json')
+        fetch(jsonUrl)
             .then(response => {
                 if (!response.ok) throw new Error('Erro ao carregar o catálogo.');
                 return response.json();
