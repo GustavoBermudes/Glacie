@@ -140,7 +140,6 @@ export function initPerfil() {
         });
     }
 
-    // Carregar endereço salvo do localStorage 
     function loadAddressData() {
         const loggedUser = JSON.parse(localStorage.getItem('glace_logged_in_user'));
         if (loggedUser && loggedUser.address) {
@@ -155,14 +154,12 @@ export function initPerfil() {
         }
     }
 
-    // Salvar o endereço no localStorage do usuário logado
     if (addressForm) {
         addressForm.addEventListener('submit', (e) => {
             e.preventDefault();
             let loggedUser = JSON.parse(localStorage.getItem('glace_logged_in_user'));
 
             if (loggedUser) {
-                // Cria o objeto de endereço
                 const addressData = {
                     cep: cepInput.value,
                     logradouro: logradouroInput.value,
@@ -176,10 +173,8 @@ export function initPerfil() {
 
                 loggedUser.address = addressData;
 
-                // Salva na sessão ativa
                 localStorage.setItem('glace_logged_in_user', JSON.stringify(loggedUser));
                 
-                // Atualiza lista geral de usuários 
                 let userList = JSON.parse(localStorage.getItem('glace_user_list')) || [];
                 userList = userList.map(user => {
                     if (user.email === loggedUser.email) {
@@ -235,18 +230,16 @@ export function initPerfil() {
         });
     }
 
-    // Associa o carregamento à aba de pedidos do perfil
     const pedidosTabBtn = document.querySelector('.tab-btn[data-tab="pedidos"]');
     if (pedidosTabBtn) {
         pedidosTabBtn.addEventListener('click', loadUserOrders);
     }
 
-    // Carrega os pedidos automaticamente ao abrir o modal de perfil
     if (perfilBtn) {
         perfilBtn.addEventListener('click', () => {
             loadUserData();
             loadAddressData();
-            loadUserOrders(); // Carrega os pedidos direto ao abrir a conta
+            loadUserOrders(); 
             if (profileModal) profileModal.classList.add('active');
         });
     }
