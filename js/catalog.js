@@ -16,7 +16,7 @@ export function initCatalog() {
     function loadCatalogData() {
         if (catalogLoaded) return;
 
-        fetch('../json/catalog.json')
+        fetch('json/catalog.json')
             .then(response => {
                 if (!response.ok) throw new Error('Erro ao carregar o catálogo.');
                 return response.json();
