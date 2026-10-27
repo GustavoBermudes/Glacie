@@ -35,6 +35,7 @@ Desenvolver uma landing page e uma vitrine de produtos funcional, com foco em:
 - JSON 
 - LocalStorage
 - Navegador web moderno
+- Nanobanana da Google para geração de imagens
 
 ## Funcionalidades
 
