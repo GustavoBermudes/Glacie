@@ -12,14 +12,19 @@ export function initSearch() {
     // Lista com todos os produtos (preenchida quando o JSON carregar)
     let allProducts = [];
 
-     const isGitHubPages = window.location.hostname.includes('github.io');
-        let jsonUrl = 'json/catalog.json';
-        if (isGitHubPages) {
-            jsonUrl = '/Glacie/json/catalog.json';
-        }
+    // Definição inteligente do caminho do JSON (funciona localmente e no GitHub Pages)
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    let jsonUrl = 'json/catalog.json';
+    if (isGitHubPages) {
+        jsonUrl = '/Glacie/json/catalog.json';
+    }
 
+    // Requisição com tratamento de erro corrigido (.ok)
     fetch(jsonUrl)
         .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Erro HTTP: ' + response.status);
+            }
             return response.json();
         })
         .then(function (data) {
