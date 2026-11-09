@@ -1,0 +1,1367 @@
+/* Fonte da marca (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* ====================================================
+   GERAL: vale para todos os elementos da página
+   ==================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1px;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #050706;
+    scrollbar-width: none; /* esconde a barra de rolagem */
+}
+
+/* ====================================================
+   HEADER (fixo no topo)
+   ==================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2vh 4vw 0;
+}
+
+/* Nome "Glaciê" */
+.Titulos h1 {
+    -webkit-user-select: none;
+    user-select: none;
+    color: #EFE8E8;
+    font-size: clamp(24px, 2.604vw, 40px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.4px;
+    transition: color 0.6s ease 0.3s;
+}
+
+/* Grupo da direita: pesquisa, carrinho e botão do menu */
+.links {
+    display: flex;
+    gap: 1.5021vw;
+    margin-top: 2vh;
+}
+
+.links a {
+    text-decoration: none;
+    color: #EFE8E8;
+    font-size: clamp(10px, 2.604vw, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    transition: color ease-in-out 0.3s;
+}
+
+.links a:hover {
+    color: #da2424;
+}
+
+/* ====================================================
+   BOTÃO DO MENU (as duas linhas)
+   ==================================================== */
+.lines {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 1vh;
+    gap: 1.7vh;
+    z-index: 1002;
+}
+
+.line1 {
+    background-color: #dbd5d5;
+    width: 3.278vw;
+    height: 1px;
+    transition: ease-in-out 0.3s;
+}
+
+.line2 {
+    background-color: #dbd5d5;
+    width: 2.200vw;
+    height: 1px;
+    transition: ease-in-out 0.3s;
+}
+
+/* Passando o mouse, as linhas ficam vermelhas */
+.lines:hover {
+    cursor: pointer;
+    transition: ease-in-out 3s;
+}
+
+.lines:hover .line1,
+.lines:hover .line2 {
+    background-color: #da2424;
+}
+
+/* ====================================================
+   MENU LATERAL (abre ao clicar nas duas linhas)
+   ==================================================== */
+.dropdown-menu {
+    display: none;
+    position: fixed;       /* relativo à tela, não ao header */
+    top: 0;
+    right: 0;
+    height: 100vh;         /* tela inteira na vertical */
+    width: 17vw;
+    min-width: 260px;
+    background-color: #EFE8E8;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 14vh 30px 30px; /* espaço no topo para o X */
+    overflow-y: auto;
+    z-index: 1001;         /* abaixo do X (1002) */
+}
+
+/* O JS coloca a classe "active" para mostrar o menu */
+.dropdown-menu.active {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    margin-bottom: 2vw;
+}
+
+.dropdown-menu ul h4 {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 2vw;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* ----- Quando o menu está aberto -----
+   No HTML o menu vem ANTES dos links e das linhas, então o sinal "~"
+   (irmão que vem depois) consegue alcançar eles. */
+
+/* esconde "pesquisa" e "carrinho" do header */
+.dropdown-menu.active ~ a {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* as duas linhas viram um X escuro sobre o fundo claro do menu */
+.dropdown-menu.active ~ .lines .line1,
+.dropdown-menu.active ~ .lines .line2 {
+    width: 3.278vw;          /* mesma largura, para se cruzarem no centro */
+    background-color: #000;
+}
+
+/* a distância entre os centros é (gap 1.7vh + 1px), então cada linha anda metade */
+.dropdown-menu.active ~ .lines .line1 {
+    transform: translateY(calc(0.85vh + 0.5px)) rotate(45deg);
+}
+
+.dropdown-menu.active ~ .lines .line2 {
+    transform: translateY(calc(-0.85vh - 0.5px)) rotate(-45deg);
+}
+
+/* o X também fica vermelho ao passar o mouse */
+.dropdown-menu.active ~ .lines:hover .line1,
+.dropdown-menu.active ~ .lines:hover .line2 {
+    background-color: #da2424;
+}
+
+/* ====================================================
+   SECTION 1: capa com o título
+   ==================================================== */
+.section1 {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/Background_Info1.png);
+    display: flex;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.section1 .Title {
+    color: #EFE8E8;
+    font-size: clamp(30px, 6.604vw, 110px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 5.5px;
+}
+
+.section1 .subtitle {
+    -webkit-user-select: none;
+    user-select: none;
+    color: #EFE8E8;
+    font-size: clamp(1px, 1.604vw, 16px);
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+.section1 .texts {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-left: 8vw;
+    margin-top: 35vh;
+}
+
+.subtitle_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Linha decorativa ao lado do subtítulo */
+.line3 {
+    background-color: #EFE8E8;
+    width: 4.741vw;
+    height: 1px;
+    margin-right: auto;
+    margin-left: 0.6vw;
+    margin-top: 1.9vh;
+}
+
+/* ====================================================
+   SECTION 2: mulheres e homens (efeito parallax)
+   ==================================================== */
+.section2 {
+    position: relative;
+    width: 100%;
+    height: 250vh; /* distância de rolagem do parallax */
+    background-color: #050706;
+}
+
+/* Palco que fica parado na tela enquanto rola a section2 */
+.section2 .stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    perspective: 1400px;
+}
+
+/* As duas caixas começam invisíveis e fora da tela.
+   O parallax.js muda opacity e transform conforme a rolagem. */
+.woman_intersect,
+.men_intersect {
+    position: absolute;
+    width: 27vw;
+    opacity: 0;
+}
+
+.woman_intersect {
+    right: 17vw;
+    top: 8vh;
+    transform: translateY(-110vh) rotateY(-22deg) rotateZ(-3deg);
+}
+
+.men_intersect {
+    left: 17vw;
+    top: 30vh;
+    transform: translateY(110vh) rotateY(22deg) rotateZ(2deg);
+}
+
+.woman_intersect img,
+.men_intersect img {
+    display: block;
+    width: 100%;
+    height: auto;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Título "MULHERES" / "HOMENS" por cima da imagem */
+.woman_intersect h1,
+.men_intersect h1 {
+    -webkit-user-select: none;
+    user-select: none;
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    margin: 0;
+    color: #EFE8E8;
+    font-size: clamp(16px, 1.6vw, 30px);
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    z-index: 1;
+}
+
+/* Link "descobrir" abaixo do título */
+.woman_intersect a,
+.men_intersect a {
+    position: absolute;
+    top: calc(8% + clamp(24px, 2.6vw, 48px));
+    left: 8%;
+    z-index: 1;
+    color: #EFE8E8;
+    font-size: clamp(8px, 0.8vw, 14px);
+    letter-spacing: 0.8px;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Na imagem das mulheres o texto fica à direita */
+.woman_intersect h1,
+.woman_intersect a {
+    left: auto;
+    right: 8%;
+}
+
+.woman_intersect a:hover,
+.men_intersect a:hover {
+    cursor: pointer;
+    color: #da2424;
+}
+
+/* ====================================================
+   MODAL DE LOGIN
+   ==================================================== */
+/* Fundo escuro que cobre a tela */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-modal.active {
+    display: flex;
+}
+
+/* Caixa branca do login */
+.login-content {
+    background-color: #EFE8E8;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão "×" de fechar */
+.close-login {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-login:hover {
+    color: #000;
+}
+
+.login-content h2 {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 20px;
+    font-family: inherit;
+    font-size: 1.5rem;
+}
+
+/* Campos de formulário (usados em vários modais) */
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Botão preto de enviar (usado em vários modais) */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: #EFE8E8;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #333;
+}
+
+/* Texto escuro dentro do modal (o botão continua claro) */
+.login-modal,
+.login-modal * {
+    color: #111111;
+}
+
+.login-modal .btn-submit,
+.login-modal .btn-submit * {
+    color: #EFE8E8;
+}
+
+/* Texto "Não tem uma conta? Cadastre-se" */
+.switch-auth-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.switch-auth-text a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.switch-auth-text a:hover {
+    color: #da2424;
+}
+
+/* ====================================================
+   ALERTA PERSONALIZADO
+   ==================================================== */
+.custom-alert {
+    -webkit-user-select: none;
+    user-select: none;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-alert.active {
+    display: flex;
+}
+
+/* Caixa de aviso */
+.alert-content {
+    background-color: #EFE8E8;
+    padding: 25px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.alert-content p {
+    font-size: 1rem;
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+/* Botão OK do alerta */
+.alert-content button {
+    background-color: #000000;
+    color: #EFE8E8;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.alert-content button:hover {
+    background-color: #da2424;
+}
+
+/* ====================================================
+   ITENS DO MENU: Entrar / Minha conta / Sair
+   ==================================================== */
+/* "Entrar" aparece por padrão; some quando tem a classe "hidden" */
+.entrar {
+    display: block;
+}
+
+.entrar.hidden {
+    display: none;
+}
+
+/* "Minha conta" e "Sair" ficam escondidos até o JS colocar "active" */
+.perfil,
+.logout {
+    display: none;
+}
+
+.perfil.active,
+.logout.active {
+    display: block;
+}
+
+/* ====================================================
+   MODAL DO PERFIL (Minha conta)
+   ==================================================== */
+/* Fundo escuro */
+.profile-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9900;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-modal.active {
+    display: flex;
+}
+
+/* Caixa principal */
+.profile-content {
+    background-color: #EFE8E8;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px;
+    min-height: 750px;
+    position: relative;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    color: #111111;
+    z-index: 10000;
+}
+
+.profile-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.profile-content input {
+    color: #111111;
+    background-color: #EFE8E8;
+    border: 1px solid #cccccc;
+}
+
+.profile-content input::placeholder {
+    color: #888888;
+}
+
+.profile-content label,
+.profile-content h2 {
+    color: #111111;
+}
+
+/* Campos bloqueados (rua, bairro, cidade e UF vêm do CEP) */
+.profile-content input.input-disabled {
+    background-color: #EFE8E8;
+    color: #666666;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}
+
+.profile-content input.input-disabled::placeholder {
+    color: #999999;
+}
+
+/* Botão de fechar (X) */
+.close-profile {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-profile:hover {
+    color: #000;
+}
+
+/* Abas */
+.profile-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    color: #666;
+    font-family: inherit;
+    transition: color 0.3s;
+}
+
+.tab-btn.active {
+    color: #000;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+}
+
+/* Só o conteúdo da aba ativa aparece */
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Mensagem da lista de pedidos vazia */
+.orders-list p {
+    color: #666;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ====================================================
+   SECTION 3: coleção VELA (troca de óculos ao rolar)
+   ==================================================== */
+/* Seção bem alta: dá espaço de rolagem para os três óculos e para o footer subir */
+.section3 {
+    -webkit-user-select: none;
+    user-select: none;
+    margin-top: 200px;
+    width: 100%;
+    height: 700vh;
+    position: relative;
+}
+
+/* Palco que fica parado na tela enquanto a seção é rolada */
+.section3-stage {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: hidden; /* esconde o que passar do palco */
+
+    /* Fundo com a modelo */
+    background-image: url("../images/Background_Info2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Quando o footer sobe, o palco recua e escurece devagar */
+    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1),
+                filter 1s ease;
+}
+
+/* Footer aberto: o palco sobe um pouco (mais devagar que o footer) e escurece */
+body.footer-open .section3-stage {
+    transform: translateY(-12vh);
+    filter: brightness(0.45);
+}
+
+/* Todas as imagens dos óculos ocupam a mesma área */
+.section3-stage .glasses {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;      /* mantém as proporções */
+    object-position: center;
+    pointer-events: none;     /* a imagem não atrapalha os cliques */
+    transition: 0.6s ease-in-out;
+}
+
+/* Primeiro óculos: começa visível no centro */
+.glasses1 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Os outros começam fora da tela, à direita */
+.glasses2,
+.glasses3 {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Área dos textos, à direita */
+.glasses-info {
+    position: absolute;
+    right: 7%;
+    top: 21%;
+    width: 230px;
+    z-index: 5;            /* fica acima das imagens */
+    pointer-events: none;  /* não atrapalha a rolagem */
+}
+
+/* Estilo comum aos três textos (ficam um em cima do outro) */
+.glasses-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #EFE8E8;
+    font-family: Arial, sans-serif;
+    letter-spacing: 4px;
+    font-size: 9px;
+    line-height: 2.2;
+
+    /* começam invisíveis; o JS mostra um de cada vez */
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease,
+                transform 0.6s ease;
+}
+
+/* Nome "VELA" */
+.glasses-text h2 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 12px;
+    margin: 0 0 5px;
+}
+
+/* Nome do modelo abaixo */
+.glasses-text .subtitle {
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin: 0 0 45px;
+}
+
+/* Linhas decorativas */
+.glasses-text .line4 {
+    display: block;
+    width: 45px;
+    height: 1px;
+    background: #EFE8E8;
+    margin: 0 0 25px;
+}
+
+.glasses-text p {
+    margin: 0 0 25px;
+}
+
+/* Primeiro texto visível por padrão */
+.text1 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ====================================================
+   FOOTER (sobe por cima da tela no fim da section3)
+   ==================================================== */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 900;
+    background-color: #EFE8E8;
+    color: #050706;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.6);
+
+    /* começa escondido abaixo da tela */
+    transform: translateY(100%);
+    pointer-events: none;
+
+    /* animação de subir e descer */
+    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* O JS coloca "show" quando chega ao fim da section3 */
+.footer.show {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Texto do footer: entra um pouco depois e mais devagar */
+.footer-inner {
+    opacity: 0;
+    transform: translateY(14vh);
+    transition: opacity 0.8s ease 0.35s,
+                transform 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+}
+
+.footer.show .footer-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-inner h2 {
+    color: #050706;
+    font-size: clamp(32px, 6vw, 96px);
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin-bottom: 2vh;
+}
+
+.footer-inner p {
+    color: #050706;
+    font-size: clamp(12px, 1.2vw, 16px);
+    letter-spacing: 1px;
+}
+
+/* Header escuro quando o footer (fundo claro) está aberto */
+header.on-light .Titulos h1,
+header.on-light .links > a {
+    color: #050706;
+}
+
+header.on-light .line1,
+header.on-light .line2 {
+    background-color: #050706;
+}
+
+/* ====================================================
+   CATÁLOGO (homens e mulheres)
+   ==================================================== */
+/* Fundo escuro que cobre a tela; só aparece com a classe "active" */
+.catalog-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9998;
+    overflow-y: auto;
+    padding: 40px 20px;
+}
+
+.catalog-section.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Caixa branca com os produtos */
+.catalog-container-inner {
+    width: 100%;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+    color: #111111;
+}
+
+/* Grade de produtos (colunas de no mínimo 220px) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* Dentro do catálogo, a grade tem um espaço no topo */
+.catalog-section .product-grid {
+    margin-top: 20px;
+}
+
+/* Cartão de produto */
+.product-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-name {
+    font-size: 1rem;
+    margin: 10px 0 5px;
+    color: #111;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Linha "Tam: P M G..." */
+.product-sizes {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Botão de tamanho */
+.size-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.size-btn:hover {
+    border-color: #111;
+}
+
+/* Tamanho escolhido */
+.size-btn.selected {
+    background-color: #111;
+    color: #fff;
+    border-color: #111;
+    font-weight: 600;
+}
+
+.close-catalog-container {
+    text-align: right;
+    padding: 10px 20px;
+}
+
+/* Botão "✕ Fechar" */
+.btn-close-catalog {
+    background: none;
+    border: 1px solid #111;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-close-catalog:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* ====================================================
+   CARRINHO
+   ==================================================== */
+/* Fundo escuro */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-modal.active {
+    display: flex;
+}
+
+/* Caixa branca */
+.cart-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #111111;
+}
+
+/* Lista de itens (rola se tiver muitos) */
+.cart-items-container {
+    overflow-y: auto;
+    max-height: 50vh;
+    margin: 15px 0;
+    padding-right: 5px;
+}
+
+/* Um item do carrinho */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.cart-item-details h4 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+/* Botões "-" e "+" da quantidade */
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.qty-btn {
+    background: #eee;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Lixeira */
+.cart-item-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Parte de baixo: total e botão */
+.cart-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Botão "×" de fechar */
+.close-cart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.btn-checkout {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn-checkout:hover {
+    background: #333;
+}
+
+/* ====================================================
+   PESQUISA
+   ==================================================== */
+/* Fundo escuro */
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-modal.active {
+    display: flex;
+}
+
+/* Caixa branca */
+.search-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 800px;
+    height: 85vh;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #111111;
+    box-sizing: border-box;
+}
+
+.close-search {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Campo de busca */
+.search-input-wrapper {
+    margin: 20px 0;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-input-wrapper input:focus {
+    border-color: #111;
+}
+
+/* Área dos resultados (rola se tiver muitos) */
+.search-results-grid {
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px 5px;
+}
+
+/* Texto "Digite algo..." ocupa a linha toda */
+.search-placeholder-text {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    margin-top: 40px;
+}
+
+/* Cartões de produto dentro da pesquisa (versão menor) */
+.search-results-grid .product-card {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    overflow: visible;
+}
+
+.search-results-grid .product-image-container {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.search-results-grid .product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-results-grid .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.search-results-grid .product-name {
+    font-size: 0.9rem;
+    color: #111;
+    font-weight: 600;
+    margin: 0;
+}
+
+.search-results-grid .product-price {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+}
+
+.search-results-grid .product-sizes {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-results-grid .size-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.search-results-grid .size-btn.selected {
+    background-color: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+/* Botão "Adicionar à Sacola" */
+.search-results-grid .btn-buy {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.search-results-grid .btn-buy:hover {
+    background: #333;
+}
+
+/* ====================================================
+   FINALIZAR COMPRA (checkout)
+   ==================================================== */
+/* Fundo escuro */
+.checkout-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-modal.active {
+    display: flex;
+}
+
+/* Caixa branca */
+.checkout-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #111111;
+    overflow-y: auto;
+}
+
+.close-checkout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* Caixa cinza com subtotal, frete e total */
+.checkout-summary {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* Linha do total (em destaque) */
+.summary-line.total {
+    font-weight: bold;
+    font-size: 1.05rem;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
+}

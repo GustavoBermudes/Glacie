@@ -1,0 +1,247 @@
+{
+  "glacie_catalog": [
+    {
+      "id": 1,
+      "gender": "men",
+      "category": "blusas",
+      "name": "Blusa de Lã",
+      "price": 189.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/blusa_masculina_la.jpg"
+    },
+    {
+      "id": 2,
+      "gender": "men",
+      "category": "blusas",
+      "name": "Moletom",
+      "price": 159.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/blusa_masculina_moleton.jpg"
+    },
+    {
+      "id": 3,
+      "gender": "men",
+      "category": "calcas",
+      "name": "Calça de Couro",
+      "price": 299.90,
+      "sizes": ["M", "G", "GG"],
+      "image": "images/men/calca_masculina_couro.jpg"
+    },
+    {
+      "id": 4,
+      "gender": "men",
+      "category": "calcas",
+      "name": "Calça Jeans",
+      "price": 199.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/calca_masculina_jeans.jpg"
+    },
+    {
+      "id": 5,
+      "gender": "men",
+      "category": "calcas",
+      "name": "Calça de Sarja",
+      "price": 179.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/calca_masculina_Sarja.jpg"
+    },
+    {
+      "id": 6,
+      "gender": "men",
+      "category": "camisetas",
+      "name": "Camiseta Lisa",
+      "price": 89.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/camiseta_masculina_lisa_branca.jpg"
+    },
+    {
+      "id": 7,
+      "gender": "men",
+      "category": "camisetas",
+      "name": "Camiseta Listrada",
+      "price": 99.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/camiseta_masculina_listrada.jpg"
+    },
+    {
+      "id": 8,
+      "gender": "men",
+      "category": "camisetas",
+      "name": "Regata Verde",
+      "price": 79.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/men/camiseta_masculina_regata_verde.jpg"
+    },
+    {
+      "id": 9,
+      "gender": "men",
+      "category": "camisetas",
+      "name": "Camiseta Flanelada",
+      "price": 139.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/camiseta_masculina_vermelha_flanelada.jpg"
+    },
+    {
+      "id": 10,
+      "gender": "men",
+      "category": "jaquetas",
+      "name": "Bobojaco",
+      "price": 349.90,
+      "sizes": ["M", "G", "GG"],
+      "image": "images/men/jaqueta_masculina_bobojaco.jpg"
+    },
+    {
+      "id": 11,
+      "gender": "men",
+      "category": "jaquetas",
+      "name": "Jaqueta Jeans",
+      "price": 279.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/jaqueta_masculina_jeans.jpg"
+    },
+    {
+      "id": 12,
+      "gender": "men",
+      "category": "jaquetas",
+      "name": "Jaqueta de Sarja",
+      "price": 259.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/men/jaqueta_masculina_sarja.jpg"
+    },
+    {
+      "id": 13,
+      "gender": "women",
+      "category": "blusas",
+      "name": "Colete",
+      "price": 159.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/blua_feminina_colete.jpg"
+    },
+    {
+      "id": 14,
+      "gender": "women",
+      "category": "blusas",
+      "name": "Cardigan",
+      "price": 169.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/blusa_feminina_cardigan.jpg"
+    },
+    {
+      "id": 15,
+      "gender": "women",
+      "category": "blusas",
+      "name": "Blusa Teddy",
+      "price": 189.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/women/blusa_feminina_teddy.jpg"
+    },
+    {
+      "id": 16,
+      "gender": "women",
+      "category": "calcas",
+      "name": "Calça de Alfaiataria",
+      "price": 219.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/calca_feminina_alfaiataria.jpg"
+    },
+    {
+      "id": 17,
+      "gender": "women",
+      "category": "calcas",
+      "name": "Calça Jeans",
+      "price": 199.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/women/calca_feminina_jeans.jpg"
+    },
+    {
+      "id": 18,
+      "gender": "women",
+      "category": "calcas",
+      "name": "Calça Legging",
+      "price": 99.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/calca_feminina_legging.jpg"
+    },
+    {
+      "id": 19,
+      "gender": "women",
+      "category": "calcas",
+      "name": "Calça Pantalona",
+      "price": 239.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/calca_feminina_pantalona_azul_marinho.jpg"
+    },
+    {
+      "id": 20,
+      "gender": "women",
+      "category": "camisetas",
+      "name": "Camiseta Amarela",
+      "price": 89.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/camiseta_feminina_amarela.jpg"
+    },
+    {
+      "id": 21,
+      "gender": "women",
+      "category": "camisetas",
+      "name": "Camiseta Boxy Laranja",
+      "price": 99.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/camiseta_feminina_boxy_laranja.jpg"
+    },
+    {
+      "id": 22,
+      "gender": "women",
+      "category": "camisetas",
+      "name": "Camiseta Oversized",
+      "price": 119.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/women/camiseta_feminina_oversized.jpg"
+    },
+    {
+      "id": 23,
+      "gender": "women",
+      "category": "camisetas",
+      "name": "Camiseta Rosa",
+      "price": 89.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/camiseta_feminina_rosa.jpg"
+    },
+    {
+      "id": 24,
+      "gender": "women",
+      "category": "jaquetas",
+      "name": "Jaqueta Parka",
+      "price": 289.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/jaqueta_feminina_parka.jpg"
+    },
+    {
+      "id": 25,
+      "gender": "women",
+      "category": "jaquetas",
+      "name": "Jaqueta Shacket",
+      "price": 249.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/jaqueta_feminina_shacket.jpg"
+    },
+    {
+      "id": 26,
+      "gender": "women",
+      "category": "jaquetas",
+      "name": "Trench Coat",
+      "price": 389.90,
+      "sizes": ["P", "M", "G", "GG"],
+      "image": "images/women/jaqueta_feminina_trench_coat.jpg"
+    },
+    {
+      "id": 27,
+      "gender": "women",
+      "category": "jaquetas",
+      "name": "Jaqueta Trucker",
+      "price": 269.90,
+      "sizes": ["P", "M", "G"],
+      "image": "images/women/jaqueta_feminina_trucker.jpg"
+    }
+  ]
+}
