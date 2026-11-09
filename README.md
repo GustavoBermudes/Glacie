@@ -96,10 +96,10 @@ O Glaciê representa uma aplicação didática de e-commerce front-end, reunindo
 
 ## Integrantes
 
-Bruno Gallego Costa
-Glebson Delphino Gregorio do Nascimento Junior
-Guilherme Cerqueira Vaz
-Guilherme Sampaio Lopes
-Gustavo da Silva Santos
-Gustavo de Morais Rodrigues
-Gustavo de São Justo Bermudes
+* - [Bruno Gallego Costa]
+* - [Glebson Delphino Gregorio do Nascimento Junior]
+* - [Guilherme Cerqueira Vaz]
+* - [Guilherme Sampaio Lopes]
+* - [Gustavo da Silva Santos]
+* - [Gustavo de Morais Rodrigues]
+* - [Gustavo de São Justo Bermudes]
