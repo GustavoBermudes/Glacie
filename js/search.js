@@ -12,7 +12,13 @@ export function initSearch() {
     // Lista com todos os produtos (preenchida quando o JSON carregar)
     let allProducts = [];
 
-    fetch('../json/catalog.json')
+     const isGitHubPages = window.location.hostname.includes('github.io');
+        let jsonUrl = 'json/catalog.json';
+        if (isGitHubPages) {
+            jsonUrl = '/Glacie/json/catalog.json';
+        }
+
+    fetch(jsonUrl)
         .then(function (response) {
             return response.json();
         })
