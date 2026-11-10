@@ -17,24 +17,12 @@ export function initSearch() {
     let jsonUrl = isGitHubPages ? '/Glacie/json/catalog.json' : './json/catalog.json';
 
     // Carrega o JSON com fallback para garantir que o arquivo seja encontrado
+    
     fetch(jsonUrl)
         .then(function (response) {
+            // Se o servidor retornar 404 ou erro, lança um erro amigável
             if (!response.ok) {
-                // Se falhar, tenta buscar subindo um nível de pasta
-                return fetch('../json/catalog.json');
-            }
-            return response;
-        })
-        .then(function (response) {
-            if (!response.ok) {
-                // Se ainda falhar, tenta buscar direto na raiz
-                return fetch('/json/catalog.json');
-            }
-            return response;
-        })
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('Não foi possível carregar o arquivo catalog.json');
+                throw new Error('Arquivo JSON não encontrado (Status: ' + response.status + '). Verifique se o caminho /json/catalog.json existe.');
             }
             return response.json();
         })
@@ -42,7 +30,7 @@ export function initSearch() {
             allProducts = data.glacie_catalog || [];
         })
         .catch(function (error) {
-            console.error('Erro ao carregar produtos para a busca:', error);
+            console.error('Erro ao carregar produtos para a busca:', error.message);
         });
 
     // Abrir a pesquisa
