@@ -16,11 +16,11 @@ export function initSearch() {
     const isGitHubPages = window.location.hostname.includes('github.io');
     let jsonUrl = isGitHubPages ? '/Glacie/json/catalog.json' : './json/catalog.json';
 
-    // Carrega o JSON com fallback para garantir que o arquivo seja encontrado
+    // Carrega o JSON com mensagens no caso de erros
     
     fetch(jsonUrl)
         .then(function (response) {
-            // Se o servidor retornar 404 ou erro, lança um erro amigável
+            // Mensagem de erro se não carregar o JSON
             if (!response.ok) {
                 throw new Error('Arquivo JSON não encontrado (Status: ' + response.status + '). Verifique se o caminho /json/catalog.json existe.');
             }
