@@ -12,18 +12,29 @@ export function initSearch() {
     // Lista com todos os produtos (preenchida quando o JSON carregar)
     let allProducts = [];
 
-    // Definição inteligente do caminho do JSON (funciona localmente e no GitHub Pages)
+    // Definição inteligente do caminho do JSON para evitar erro 404 (HTML em vez de JSON)
     const isGitHubPages = window.location.hostname.includes('github.io');
-    let jsonUrl = 'json/catalog.json';
-    if (isGitHubPages) {
-        jsonUrl = '/Glacie/json/catalog.json';
-    }
+    let jsonUrl = isGitHubPages ? '/Glacie/json/catalog.json' : './json/catalog.json';
 
-    // Requisição com tratamento de erro corrigido (.ok)
+    // Carrega o JSON com fallback para garantir que o arquivo seja encontrado
     fetch(jsonUrl)
         .then(function (response) {
             if (!response.ok) {
-                throw new Error('Erro HTTP: ' + response.status);
+                // Se falhar, tenta buscar subindo um nível de pasta
+                return fetch('../json/catalog.json');
+            }
+            return response;
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                // Se ainda falhar, tenta buscar direto na raiz
+                return fetch('/json/catalog.json');
+            }
+            return response;
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Não foi possível carregar o arquivo catalog.json');
             }
             return response.json();
         })
